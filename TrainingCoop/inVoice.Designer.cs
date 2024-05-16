@@ -54,13 +54,20 @@
             label12 = new Label();
             totalAmount = new TextBox();
             label13 = new Label();
-            Vat = new TextBox();
+            tVat = new TextBox();
             label14 = new Label();
-            Total = new TextBox();
+            tTotal = new TextBox();
             label15 = new Label();
             label16 = new Label();
             dateTimePicker1 = new DateTimePicker();
             dataGridView1 = new DataGridView();
+            Column8 = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
@@ -70,13 +77,6 @@
             bClose = new Button();
             bNew = new Button();
             bShow = new Button();
-            Column8 = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -258,6 +258,7 @@
             employeeCode.Name = "employeeCode";
             employeeCode.Size = new Size(100, 23);
             employeeCode.TabIndex = 37;
+            employeeCode.KeyDown += employeeCode_KeyDown;
             // 
             // label11
             // 
@@ -286,11 +287,11 @@
             // 
             // totalAmount
             // 
+            totalAmount.Enabled = false;
             totalAmount.Location = new Point(576, 530);
             totalAmount.Name = "totalAmount";
             totalAmount.Size = new Size(100, 23);
             totalAmount.TabIndex = 41;
-            totalAmount.Text = "0";
             // 
             // label13
             // 
@@ -301,12 +302,13 @@
             label13.TabIndex = 40;
             label13.Text = "Total Amount";
             // 
-            // Vat
+            // tVat
             // 
-            Vat.Location = new Point(576, 559);
-            Vat.Name = "Vat";
-            Vat.Size = new Size(100, 23);
-            Vat.TabIndex = 43;
+            tVat.Enabled = false;
+            tVat.Location = new Point(576, 559);
+            tVat.Name = "tVat";
+            tVat.Size = new Size(100, 23);
+            tVat.TabIndex = 43;
             // 
             // label14
             // 
@@ -317,12 +319,13 @@
             label14.TabIndex = 42;
             label14.Text = "Vat 7%";
             // 
-            // Total
+            // tTotal
             // 
-            Total.Location = new Point(576, 588);
-            Total.Name = "Total";
-            Total.Size = new Size(100, 23);
-            Total.TabIndex = 45;
+            tTotal.Enabled = false;
+            tTotal.Location = new Point(576, 588);
+            tTotal.Name = "tTotal";
+            tTotal.Size = new Size(100, 23);
+            tTotal.TabIndex = 45;
             // 
             // label15
             // 
@@ -361,7 +364,53 @@
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(645, 153);
             dataGridView1.TabIndex = 48;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // Column8
+            // 
+            Column8.HeaderText = "No.";
+            Column8.Name = "Column8";
+            Column8.ReadOnly = true;
+            Column8.Width = 40;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Code";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Type";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Price";
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Qty";
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            Column6.Width = 40;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Amount";
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -421,6 +470,7 @@
             bRemove.TabIndex = 57;
             bRemove.Text = "Remove";
             bRemove.UseVisualStyleBackColor = false;
+            bRemove.Click += bRemove_Click;
             // 
             // bEdit
             // 
@@ -431,6 +481,7 @@
             bEdit.TabIndex = 56;
             bEdit.Text = "Edit";
             bEdit.UseVisualStyleBackColor = false;
+            bEdit.Click += bEdit_Click;
             // 
             // bAdd
             // 
@@ -451,6 +502,7 @@
             bClose.TabIndex = 54;
             bClose.Text = "Close";
             bClose.UseVisualStyleBackColor = true;
+            bClose.Click += bClose_Click;
             // 
             // bNew
             // 
@@ -460,6 +512,7 @@
             bNew.TabIndex = 52;
             bNew.Text = "New";
             bNew.UseVisualStyleBackColor = true;
+            bNew.Click += bNew_Click;
             // 
             // bShow
             // 
@@ -469,52 +522,7 @@
             bShow.TabIndex = 53;
             bShow.Text = "Show";
             bShow.UseVisualStyleBackColor = true;
-            // 
-            // Column8
-            // 
-            Column8.HeaderText = "No.";
-            Column8.Name = "Column8";
-            Column8.ReadOnly = true;
-            Column8.Width = 40;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Code";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Name";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Type";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Price";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Qty";
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Width = 40;
-            // 
-            // Column7
-            // 
-            Column7.HeaderText = "Amount";
-            Column7.Name = "Column7";
-            Column7.ReadOnly = true;
+            bShow.Click += bShow_Click;
             // 
             // Invoice
             // 
@@ -533,9 +541,9 @@
             Controls.Add(dataGridView1);
             Controls.Add(dateTimePicker1);
             Controls.Add(label16);
-            Controls.Add(Total);
+            Controls.Add(tTotal);
             Controls.Add(label15);
-            Controls.Add(Vat);
+            Controls.Add(tVat);
             Controls.Add(label14);
             Controls.Add(totalAmount);
             Controls.Add(label13);
@@ -582,9 +590,9 @@
         private Label label12;
         private TextBox totalAmount;
         private Label label13;
-        private TextBox Vat;
+        private TextBox tVat;
         private Label label14;
-        private TextBox Total;
+        private TextBox tTotal;
         private Label label15;
         private Label label16;
         private DateTimePicker dateTimePicker1;
