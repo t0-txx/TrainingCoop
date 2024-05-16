@@ -45,13 +45,6 @@
             label5 = new Label();
             noSex = new RadioButton();
             dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewImageColumn();
             bRemove = new Button();
             bEdit = new Button();
             bAdd = new Button();
@@ -59,6 +52,14 @@
             label6 = new Label();
             bBrowse = new Button();
             openFileDialog1 = new OpenFileDialog();
+            Column8 = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -210,71 +211,14 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column8, Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
             dataGridView1.Location = new Point(35, 373);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(715, 120);
+            dataGridView1.Size = new Size(754, 120);
             dataGridView1.TabIndex = 18;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // Column1
-            // 
-            Column1.Frozen = true;
-            Column1.HeaderText = "Code";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 50;
-            // 
-            // Column2
-            // 
-            Column2.Frozen = true;
-            Column2.HeaderText = "Name";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            Column3.Frozen = true;
-            Column3.HeaderText = "Salary";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            Column4.Frozen = true;
-            Column4.HeaderText = "Sex";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 50;
-            // 
-            // Column5
-            // 
-            Column5.Frozen = true;
-            Column5.HeaderText = "Department";
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            Column6.Frozen = true;
-            Column6.HeaderText = "Browse";
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Resizable = DataGridViewTriState.True;
-            Column6.Width = 160;
-            // 
-            // Column7
-            // 
-            Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            Column7.HeaderText = "Image";
-            Column7.ImageLayout = DataGridViewImageCellLayout.Stretch;
-            Column7.Name = "Column7";
-            Column7.ReadOnly = true;
-            Column7.Resizable = DataGridViewTriState.True;
-            Column7.Width = 46;
             // 
             // bRemove
             // 
@@ -342,11 +286,76 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
+            // Column8
+            // 
+            Column8.Frozen = true;
+            Column8.HeaderText = "No.";
+            Column8.Name = "Column8";
+            Column8.ReadOnly = true;
+            Column8.Width = 50;
+            // 
+            // Column1
+            // 
+            Column1.Frozen = true;
+            Column1.HeaderText = "Code";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            Column2.Frozen = true;
+            Column2.HeaderText = "Name";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            Column3.Frozen = true;
+            Column3.HeaderText = "Salary";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            Column4.Frozen = true;
+            Column4.HeaderText = "Sex";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 50;
+            // 
+            // Column5
+            // 
+            Column5.Frozen = true;
+            Column5.HeaderText = "Department";
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            Column6.Frozen = true;
+            Column6.HeaderText = "Browse";
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            Column6.Resizable = DataGridViewTriState.True;
+            Column6.Width = 160;
+            // 
+            // Column7
+            // 
+            Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Column7.HeaderText = "Image";
+            Column7.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
+            Column7.Resizable = DataGridViewTriState.True;
+            Column7.Width = 46;
+            // 
             // Employee
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(801, 541);
+            ClientSize = new Size(826, 541);
             Controls.Add(bBrowse);
             Controls.Add(label6);
             Controls.Add(pictureBox1);
@@ -401,6 +410,7 @@
         private Label label6;
         private Button bBrowse;
         private OpenFileDialog openFileDialog1;
+        private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;

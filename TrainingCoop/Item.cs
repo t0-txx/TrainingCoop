@@ -118,16 +118,16 @@ namespace TrainingCoop
         {
             if (e.RowIndex > -1)
             {
-                itemCode.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value + "";
-                itemName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
-                typeName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
-                if (dataGridView1.Rows[e.RowIndex].Cells[3].Value + "" == Vat.Text)
+                itemCode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
+                itemName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
+                typeName.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value + "";
+                if (dataGridView1.Rows[e.RowIndex].Cells[4].Value + "" == Vat.Text)
                     Vat.Checked = true;
                 else
                     noVat.Checked = true;
-                price.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value + "";
-                qty.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value + "";
-                amount.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value + "";
+                price.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value + "";
+                qty.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value + "";
+                amount.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value + "";
             }
         }
 
@@ -136,13 +136,14 @@ namespace TrainingCoop
         {
             dataGridView1.Rows.Add();
             int r = dataGridView1.Rows.Count - 1;
-            dataGridView1.Rows[r].Cells[0].Value = itemCode.Text;
-            dataGridView1.Rows[r].Cells[1].Value = itemName.Text;
-            dataGridView1.Rows[r].Cells[2].Value = typeName.Text;
-            dataGridView1.Rows[r].Cells[3].Value = isVat;
-            dataGridView1.Rows[r].Cells[4].Value = price.Text;
-            dataGridView1.Rows[r].Cells[5].Value = qty.Text;
-            dataGridView1.Rows[r].Cells[6].Value = amount.Text;
+            dataGridView1.Rows[r].Cells[0].Value = r + 1;
+            dataGridView1.Rows[r].Cells[1].Value = itemCode.Text;
+            dataGridView1.Rows[r].Cells[2].Value = itemName.Text;
+            dataGridView1.Rows[r].Cells[3].Value = typeName.Text;
+            dataGridView1.Rows[r].Cells[4].Value = isVat;
+            dataGridView1.Rows[r].Cells[5].Value = price.Text;
+            dataGridView1.Rows[r].Cells[6].Value = qty.Text;
+            dataGridView1.Rows[r].Cells[7].Value = amount.Text;
 
             double amt = double.Parse(amount.Text);
             double totalAmt = double.Parse(totalAmount.Text);
@@ -155,20 +156,20 @@ namespace TrainingCoop
             if (dataGridView1.Rows.Count > 0)
             {
                 int r = dataGridView1.CurrentCell.RowIndex;
-                dataGridView1.Rows[r].Cells[0].Value = itemCode.Text;
-                dataGridView1.Rows[r].Cells[1].Value = itemName.Text;
-                dataGridView1.Rows[r].Cells[2].Value = typeName.Text;
-                dataGridView1.Rows[r].Cells[3].Value = isVat;
-                dataGridView1.Rows[r].Cells[4].Value = price.Text;
-                dataGridView1.Rows[r].Cells[5].Value = qty.Text;
+                dataGridView1.Rows[r].Cells[1].Value = itemCode.Text;
+                dataGridView1.Rows[r].Cells[2].Value = itemName.Text;
+                dataGridView1.Rows[r].Cells[3].Value = typeName.Text;
+                dataGridView1.Rows[r].Cells[4].Value = isVat;
+                dataGridView1.Rows[r].Cells[5].Value = price.Text;
+                dataGridView1.Rows[r].Cells[6].Value = qty.Text;
 
                 double amt = double.Parse(amount.Text);
                 double totalAmt = double.Parse(totalAmount.Text);
-                double editAmt = double.Parse(dataGridView1.Rows[r].Cells[6].Value + "");
+                double editAmt = double.Parse(dataGridView1.Rows[r].Cells[7].Value + "");
                 totalAmt = (totalAmt - editAmt) + amt;
                 totalAmount.Text = totalAmt.ToString("#,##0.00");
 
-                dataGridView1.Rows[r].Cells[6].Value = amount.Text;
+                dataGridView1.Rows[r].Cells[7].Value = amount.Text;
             }
         }
 
@@ -182,6 +183,10 @@ namespace TrainingCoop
                 double totalAmt = double.Parse(totalAmount.Text);
                 totalAmt = totalAmt - amt;
                 totalAmount.Text = totalAmt.ToString("#,##0.00");
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                }
             }
             else
             {

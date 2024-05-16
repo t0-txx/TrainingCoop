@@ -52,9 +52,9 @@ namespace TrainingCoop
         {
             if (e.RowIndex > -1)
             {
-                customerCode.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value + "";
-                customerName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
-                province.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
+                customerCode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
+                customerName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
+                province.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value + "";
             }
         }
 
@@ -62,9 +62,10 @@ namespace TrainingCoop
         {
             dataGridView1.Rows.Add();
             int r = dataGridView1.Rows.Count - 1;
-            dataGridView1.Rows[r].Cells[0].Value = customerCode.Text;
-            dataGridView1.Rows[r].Cells[1].Value = customerName.Text;
-            dataGridView1.Rows[r].Cells[2].Value = province.Text;
+            dataGridView1.Rows[r].Cells[0].Value = r + 1;
+            dataGridView1.Rows[r].Cells[1].Value = customerCode.Text;
+            dataGridView1.Rows[r].Cells[2].Value = customerName.Text;
+            dataGridView1.Rows[r].Cells[3].Value = province.Text;
         }
 
         private void bEdit_Click(object sender, EventArgs e)
@@ -72,9 +73,9 @@ namespace TrainingCoop
             if (dataGridView1.Rows.Count > 0)
             {
                 int r = dataGridView1.CurrentCell.RowIndex;
-                dataGridView1.Rows[r].Cells[0].Value = customerCode.Text;
-                dataGridView1.Rows[r].Cells[1].Value = customerName.Text;
-                dataGridView1.Rows[r].Cells[2].Value = province.Text;
+                dataGridView1.Rows[r].Cells[1].Value = customerCode.Text;
+                dataGridView1.Rows[r].Cells[2].Value = customerName.Text;
+                dataGridView1.Rows[r].Cells[3].Value = province.Text;
             }
         }
 
@@ -84,6 +85,10 @@ namespace TrainingCoop
             {
                 int r = dataGridView1.CurrentCell.RowIndex;
                 dataGridView1.Rows.RemoveAt(r);
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                }
             }
             else
             {

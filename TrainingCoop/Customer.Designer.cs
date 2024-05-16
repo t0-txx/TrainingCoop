@@ -38,12 +38,13 @@
             province = new ComboBox();
             label3 = new Label();
             dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
             bRemove = new Button();
             bEdit = new Button();
             bAdd = new Button();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -133,33 +134,14 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column4, Column1, Column2, Column3 });
             dataGridView1.Location = new Point(405, 115);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(400, 179);
+            dataGridView1.Size = new Size(459, 179);
             dataGridView1.TabIndex = 15;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Code";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Name";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Province";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
             // 
             // bRemove
             // 
@@ -194,11 +176,37 @@
             bAdd.UseVisualStyleBackColor = false;
             bAdd.Click += bAdd_Click;
             // 
+            // Column4
+            // 
+            Column4.HeaderText = "No.";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 50;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Code";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Province";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
             // Customer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(886, 450);
+            ClientSize = new Size(956, 450);
             Controls.Add(dataGridView1);
             Controls.Add(bRemove);
             Controls.Add(bEdit);
@@ -231,11 +239,12 @@
         private ComboBox province;
         private Label label3;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
         private Button bRemove;
         private Button bEdit;
         private Button bAdd;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
     }
 }

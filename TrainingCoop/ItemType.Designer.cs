@@ -39,6 +39,7 @@
             bEdit = new Button();
             bRemove = new Button();
             dataGridView1 = new DataGridView();
+            Column3 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -145,14 +146,21 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column3, Column1, Column2 });
             dataGridView1.Location = new Point(379, 139);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(348, 150);
+            dataGridView1.Size = new Size(409, 150);
             dataGridView1.TabIndex = 11;
             dataGridView1.CellClick += dataGridView1_CellClick;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "No.";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 50;
             // 
             // Column1
             // 
@@ -171,7 +179,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(879, 450);
             Controls.Add(dataGridView1);
             Controls.Add(bRemove);
             Controls.Add(bEdit);
@@ -203,6 +211,7 @@
         private Button bEdit;
         private Button bRemove;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Column3;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
     }

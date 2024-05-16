@@ -36,11 +36,12 @@
             label2 = new Label();
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
             bRemove = new Button();
             bEdit = new Button();
             bAdd = new Button();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -112,27 +113,14 @@
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column3, Column1, Column2 });
             dataGridView1.Location = new Point(388, 139);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(348, 147);
+            dataGridView1.Size = new Size(400, 147);
             dataGridView1.TabIndex = 15;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Code";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Name";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 200;
             // 
             // bRemove
             // 
@@ -167,11 +155,31 @@
             bAdd.UseVisualStyleBackColor = false;
             bAdd.Click += bAdd_Click;
             // 
+            // Column3
+            // 
+            Column3.HeaderText = "No.";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            Column3.Width = 50;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Code";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 200;
+            // 
             // Department
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(904, 450);
             Controls.Add(dataGridView1);
             Controls.Add(bRemove);
             Controls.Add(bEdit);
@@ -200,10 +208,11 @@
         private Label label2;
         private Label label1;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
         private Button bRemove;
         private Button bEdit;
         private Button bAdd;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
     }
 }

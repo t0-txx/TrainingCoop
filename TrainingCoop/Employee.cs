@@ -87,19 +87,19 @@ namespace TrainingCoop
         {
             if (e.RowIndex > -1)
             {
-                employeeCode.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value + "";
-                employeeName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
-                Salary.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
-                string dataSex = dataGridView1.Rows[e.RowIndex].Cells[3].Value + "";
+                employeeCode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
+                employeeName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
+                Salary.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value + "";
+                string dataSex = dataGridView1.Rows[e.RowIndex].Cells[4].Value + "";
                 if (dataSex == mSex.Text)
                     mSex.Checked = true;
                 else if (dataSex == fSex.Text)
                     fSex.Checked = true;
                 else
                     noSex.Checked = true;
-                departmentName.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value + "";
-                label6.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value + "";
-                pictureBox1.Image = (Image)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
+                departmentName.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value + "";
+                label6.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value + "";
+                pictureBox1.Image = (Image)dataGridView1.Rows[e.RowIndex].Cells[7].Value;
                 //pictureBox1.Image = System.Drawing.Image.FromFile("F:\\รูป\\" + label6.Text);
             }
         }
@@ -109,13 +109,14 @@ namespace TrainingCoop
             isSex();
             dataGridView1.Rows.Add();
             int r = dataGridView1.Rows.Count - 1;
-            dataGridView1.Rows[r].Cells[0].Value = employeeCode.Text;
-            dataGridView1.Rows[r].Cells[1].Value = employeeName.Text;
-            dataGridView1.Rows[r].Cells[2].Value = Salary.Text;
-            dataGridView1.Rows[r].Cells[3].Value = sex;
-            dataGridView1.Rows[r].Cells[4].Value = departmentName.Text;
-            dataGridView1.Rows[r].Cells[5].Value = label6.Text;
-            dataGridView1.Rows[r].Cells[6].Value = pictureBox1.Image;
+            dataGridView1.Rows[r].Cells[0].Value = r + 1;
+            dataGridView1.Rows[r].Cells[1].Value = employeeCode.Text;
+            dataGridView1.Rows[r].Cells[2].Value = employeeName.Text;
+            dataGridView1.Rows[r].Cells[3].Value = Salary.Text;
+            dataGridView1.Rows[r].Cells[4].Value = sex;
+            dataGridView1.Rows[r].Cells[5].Value = departmentName.Text;
+            dataGridView1.Rows[r].Cells[6].Value = label6.Text;
+            dataGridView1.Rows[r].Cells[7].Value = pictureBox1.Image;
         }
 
         private void bEdit_Click(object sender, EventArgs e)
@@ -124,13 +125,13 @@ namespace TrainingCoop
             {
                 isSex();
                 int r = dataGridView1.CurrentCell.RowIndex;
-                dataGridView1.Rows[r].Cells[0].Value = employeeCode.Text;
-                dataGridView1.Rows[r].Cells[1].Value = employeeName.Text;
-                dataGridView1.Rows[r].Cells[2].Value = Salary.Text;
-                dataGridView1.Rows[r].Cells[3].Value = sex;
-                dataGridView1.Rows[r].Cells[4].Value = departmentName.Text;
-                dataGridView1.Rows[r].Cells[5].Value = label6.Text;
-                dataGridView1.Rows[r].Cells[6].Value = pictureBox1.Image;
+                dataGridView1.Rows[r].Cells[1].Value = employeeCode.Text;
+                dataGridView1.Rows[r].Cells[2].Value = employeeName.Text;
+                dataGridView1.Rows[r].Cells[3].Value = Salary.Text;
+                dataGridView1.Rows[r].Cells[4].Value = sex;
+                dataGridView1.Rows[r].Cells[5].Value = departmentName.Text;
+                dataGridView1.Rows[r].Cells[6].Value = label6.Text;
+                dataGridView1.Rows[r].Cells[7].Value = pictureBox1.Image;
             }
         }
 
@@ -140,6 +141,10 @@ namespace TrainingCoop
             {
                 int r = dataGridView1.CurrentCell.RowIndex;
                 dataGridView1.Rows.RemoveAt(r);
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    dataGridView1.Rows[i].Cells[0].Value = i + 1;
+                }
             }
             else
             {
