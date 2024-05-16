@@ -119,7 +119,7 @@ namespace TrainingCoop
                 double Vat = 0.07, total = 0;
                 totalAmt = totalAmt + amt;
                 Vat = totalAmt * Vat;
-                total = totalAmt - Vat;
+                total = totalAmt + Vat;
                 totalAmount.Text = totalAmt.ToString("#,##0.00");
                 tVat.Text = Vat.ToString("#,##0.00");
                 tTotal.Text = total.ToString("#,##0.00");
@@ -160,7 +160,7 @@ namespace TrainingCoop
                 double Vat = 0.07, total = 0;
                 totalAmt = (totalAmt - editAmt) + amt;
                 Vat = totalAmt * Vat;
-                total = totalAmt - Vat;
+                total = totalAmt + Vat;
                 totalAmount.Text = totalAmt.ToString("#,##0.00");
                 tVat.Text = Vat.ToString("#,##0.00");
                 tTotal.Text = total.ToString("#,##0.00");
@@ -182,7 +182,7 @@ namespace TrainingCoop
                 double Vat = 0.07, total = 0;
                 totalAmt = totalAmt - amt;
                 Vat = totalAmt * Vat;
-                total = totalAmt - Vat;
+                total = totalAmt + Vat;
                 totalAmount.Text = totalAmt.ToString("#,##0.00");
                 tVat.Text = Vat.ToString("#,##0.00");
                 tTotal.Text = total.ToString("#,##0.00");
