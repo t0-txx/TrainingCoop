@@ -22,6 +22,14 @@ namespace TrainingCoop
             if (e.KeyCode == Keys.Enter)
             {
                 customerName.Focus();
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[1].Value + "" == customerCode.Text)
+                    {
+                        customerName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                        province.Text = dataGridView1.Rows[i].Cells[3].Value + "";
+                    }
+                }
             }
         }
 
@@ -66,6 +74,7 @@ namespace TrainingCoop
             dataGridView1.Rows[r].Cells[1].Value = customerCode.Text;
             dataGridView1.Rows[r].Cells[2].Value = customerName.Text;
             dataGridView1.Rows[r].Cells[3].Value = province.Text;
+            bNew.PerformClick();
         }
 
         private void bEdit_Click(object sender, EventArgs e)
@@ -76,6 +85,7 @@ namespace TrainingCoop
                 dataGridView1.Rows[r].Cells[1].Value = customerCode.Text;
                 dataGridView1.Rows[r].Cells[2].Value = customerName.Text;
                 dataGridView1.Rows[r].Cells[3].Value = province.Text;
+                bNew.PerformClick();
             }
         }
 

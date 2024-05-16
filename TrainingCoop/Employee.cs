@@ -27,6 +27,26 @@ namespace TrainingCoop
             if (e.KeyCode == Keys.Enter)
             {
                 employeeName.Focus();
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[1].Value + "" == employeeCode.Text)
+                    {
+                        departmentName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                        employeeCode.Text = dataGridView1.Rows[i].Cells[1].Value + "";
+                        employeeName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                        Salary.Text = dataGridView1.Rows[i].Cells[3].Value + "";
+                        string dataSex = dataGridView1.Rows[i].Cells[4].Value + "";
+                        if (dataSex == mSex.Text)
+                            mSex.Checked = true;
+                        else if (dataSex == fSex.Text)
+                            fSex.Checked = true;
+                        else
+                            noSex.Checked = true;
+                        departmentName.Text = dataGridView1.Rows[i].Cells[5].Value + "";
+                        label6.Text = dataGridView1.Rows[i].Cells[6].Value + "";
+                        pictureBox1.Image = (Image)dataGridView1.Rows[i].Cells[7].Value;
+                    }
+                }
             }
         }
 
@@ -117,6 +137,7 @@ namespace TrainingCoop
             dataGridView1.Rows[r].Cells[5].Value = departmentName.Text;
             dataGridView1.Rows[r].Cells[6].Value = label6.Text;
             dataGridView1.Rows[r].Cells[7].Value = pictureBox1.Image;
+            bNew.PerformClick();
         }
 
         private void bEdit_Click(object sender, EventArgs e)
@@ -132,6 +153,7 @@ namespace TrainingCoop
                 dataGridView1.Rows[r].Cells[5].Value = departmentName.Text;
                 dataGridView1.Rows[r].Cells[6].Value = label6.Text;
                 dataGridView1.Rows[r].Cells[7].Value = pictureBox1.Image;
+                bNew.PerformClick();
             }
         }
 

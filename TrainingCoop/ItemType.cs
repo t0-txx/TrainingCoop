@@ -59,6 +59,7 @@ namespace TrainingCoop
             dataGridView1.Rows[r].Cells[0].Value = r + 1;
             dataGridView1.Rows[r].Cells[1].Value = typeCode.Text;
             dataGridView1.Rows[r].Cells[2].Value = typeName.Text;
+            bNew.PerformClick();
         }
 
         private void bEdit_Click(object sender, EventArgs e)
@@ -68,6 +69,7 @@ namespace TrainingCoop
                 int r = dataGridView1.CurrentCell.RowIndex;
                 dataGridView1.Rows[r].Cells[1].Value = typeCode.Text;
                 dataGridView1.Rows[r].Cells[2].Value = typeName.Text;
+                bNew.PerformClick();
             }
         }
 
@@ -85,6 +87,27 @@ namespace TrainingCoop
             else
             {
                 MessageBox.Show("ไม่มีข้อมูล");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string ms = "";
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                ms += dataGridView1.Rows[i].Cells[1].Value + "\n";
+            }
+            MessageBox.Show(ms, "Code");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if (dataGridView1.Rows[i].Cells[1].Value + "" == typeCode.Text)
+                {
+                    typeName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                }
             }
         }
     }

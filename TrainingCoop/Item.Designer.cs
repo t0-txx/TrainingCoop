@@ -30,7 +30,6 @@
         {
             bClose = new Button();
             bShow = new Button();
-            bNew = new Button();
             label1 = new Label();
             label2 = new Label();
             itemCode = new TextBox();
@@ -47,11 +46,6 @@
             amount = new TextBox();
             label7 = new Label();
             dataGridView1 = new DataGridView();
-            bRemove = new Button();
-            bEdit = new Button();
-            bAdd = new Button();
-            totalAmount = new TextBox();
-            label8 = new Label();
             Column8 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -60,7 +54,13 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
+            bRemove = new Button();
+            bEdit = new Button();
+            bAdd = new Button();
+            totalAmount = new TextBox();
+            label8 = new Label();
             label9 = new Label();
+            bNew = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -83,16 +83,6 @@
             bShow.Text = "Show";
             bShow.UseVisualStyleBackColor = true;
             bShow.Click += bShow_Click;
-            // 
-            // bNew
-            // 
-            bNew.Location = new Point(39, 348);
-            bNew.Name = "bNew";
-            bNew.Size = new Size(75, 23);
-            bNew.TabIndex = 13;
-            bNew.Text = "New";
-            bNew.UseVisualStyleBackColor = true;
-            bNew.Click += bNew_Click;
             // 
             // label1
             // 
@@ -221,6 +211,7 @@
             amount.Name = "amount";
             amount.Size = new Size(171, 23);
             amount.TabIndex = 12;
+            amount.Text = "0";
             // 
             // label7
             // 
@@ -244,57 +235,6 @@
             dataGridView1.Size = new Size(712, 300);
             dataGridView1.TabIndex = 22;
             dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // bRemove
-            // 
-            bRemove.BackColor = Color.Tomato;
-            bRemove.Location = new Point(229, 306);
-            bRemove.Name = "bRemove";
-            bRemove.Size = new Size(75, 23);
-            bRemove.TabIndex = 21;
-            bRemove.Text = "Remove";
-            bRemove.UseVisualStyleBackColor = false;
-            bRemove.Click += bRemove_Click;
-            // 
-            // bEdit
-            // 
-            bEdit.BackColor = Color.Khaki;
-            bEdit.Location = new Point(133, 306);
-            bEdit.Name = "bEdit";
-            bEdit.Size = new Size(75, 23);
-            bEdit.TabIndex = 20;
-            bEdit.Text = "Edit";
-            bEdit.UseVisualStyleBackColor = false;
-            bEdit.Click += bEdit_Click;
-            // 
-            // bAdd
-            // 
-            bAdd.BackColor = Color.YellowGreen;
-            bAdd.Location = new Point(39, 306);
-            bAdd.Name = "bAdd";
-            bAdd.Size = new Size(75, 23);
-            bAdd.TabIndex = 19;
-            bAdd.Text = "Add";
-            bAdd.UseVisualStyleBackColor = false;
-            bAdd.Click += bAdd_Click;
-            // 
-            // totalAmount
-            // 
-            totalAmount.Enabled = false;
-            totalAmount.Location = new Point(841, 383);
-            totalAmount.Name = "totalAmount";
-            totalAmount.Size = new Size(171, 23);
-            totalAmount.TabIndex = 24;
-            totalAmount.Text = "0";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(740, 386);
-            label8.Name = "label8";
-            label8.Size = new Size(79, 15);
-            label8.TabIndex = 23;
-            label8.Text = "ราคารวมทั้งหมด";
             // 
             // Column8
             // 
@@ -349,6 +289,57 @@
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
             // 
+            // bRemove
+            // 
+            bRemove.BackColor = Color.Tomato;
+            bRemove.Location = new Point(229, 306);
+            bRemove.Name = "bRemove";
+            bRemove.Size = new Size(75, 23);
+            bRemove.TabIndex = 21;
+            bRemove.Text = "Remove";
+            bRemove.UseVisualStyleBackColor = false;
+            bRemove.Click += bRemove_Click;
+            // 
+            // bEdit
+            // 
+            bEdit.BackColor = Color.Khaki;
+            bEdit.Location = new Point(133, 306);
+            bEdit.Name = "bEdit";
+            bEdit.Size = new Size(75, 23);
+            bEdit.TabIndex = 20;
+            bEdit.Text = "Edit";
+            bEdit.UseVisualStyleBackColor = false;
+            bEdit.Click += bEdit_Click;
+            // 
+            // bAdd
+            // 
+            bAdd.BackColor = Color.YellowGreen;
+            bAdd.Location = new Point(39, 306);
+            bAdd.Name = "bAdd";
+            bAdd.Size = new Size(75, 23);
+            bAdd.TabIndex = 19;
+            bAdd.Text = "Add";
+            bAdd.UseVisualStyleBackColor = false;
+            bAdd.Click += bAdd_Click;
+            // 
+            // totalAmount
+            // 
+            totalAmount.Enabled = false;
+            totalAmount.Location = new Point(841, 383);
+            totalAmount.Name = "totalAmount";
+            totalAmount.Size = new Size(171, 23);
+            totalAmount.TabIndex = 24;
+            totalAmount.Text = "0";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(740, 386);
+            label8.Name = "label8";
+            label8.Size = new Size(79, 15);
+            label8.TabIndex = 23;
+            label8.Text = "ราคารวมทั้งหมด";
+            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -357,6 +348,16 @@
             label9.Size = new Size(26, 15);
             label9.TabIndex = 25;
             label9.Text = "บาท";
+            // 
+            // bNew
+            // 
+            bNew.Location = new Point(39, 348);
+            bNew.Name = "bNew";
+            bNew.Size = new Size(75, 23);
+            bNew.TabIndex = 14;
+            bNew.Text = "New";
+            bNew.UseVisualStyleBackColor = true;
+            bNew.Click += bNew_Click;
             // 
             // Item
             // 
@@ -375,9 +376,9 @@
             Controls.Add(label6);
             Controls.Add(bClose);
             Controls.Add(qty);
+            Controls.Add(bNew);
             Controls.Add(bShow);
             Controls.Add(label5);
-            Controls.Add(bNew);
             Controls.Add(price);
             Controls.Add(label4);
             Controls.Add(label1);
@@ -430,5 +431,6 @@
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
         private Label label9;
+        private Button bNew1;
     }
 }

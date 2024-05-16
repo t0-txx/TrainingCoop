@@ -15,12 +15,32 @@ namespace TrainingCoop
         public Item()
         {
             InitializeComponent();
+            amount.Text = 0 + "";
         }
 
         private void itemCode_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[1].Value + "" == itemCode.Text)
+                    {
+                        itemName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                        typeName.Text = dataGridView1.Rows[i].Cells[3].Value + "";
+                        if (dataGridView1.Rows[i].Cells[4].Value + "" == Vat.Text)
+                        {
+                            Vat.Checked = true;
+                        }
+                        else
+                        {
+                            noVat.Checked = true;
+                        }
+                        price.Text = dataGridView1.Rows[i].Cells[5].Value + "";
+                        qty.Text = dataGridView1.Rows[i].Cells[6].Value + "";
+                        amount.Text = dataGridView1.Rows[i].Cells[7].Value + "";
+                    }
+                }
                 itemName.Focus();
             }
         }
@@ -47,11 +67,11 @@ namespace TrainingCoop
             {
                 try
                 {
-                    double vat = 0, amt = int.Parse(price.Text) * int.Parse(qty.Text);
+                    double vat = 0, amt = double.Parse(price.Text) * double.Parse(qty.Text);
                     if (Vat.Checked)
                         vat = 0.07;
                     amt = amt - (amt * vat);
-                    amount.Text = amt.ToString("#,###.00");
+                    amount.Text = amt.ToString("#,##0.00");
                 }
                 catch (Exception ex)
                 {
@@ -145,10 +165,17 @@ namespace TrainingCoop
             dataGridView1.Rows[r].Cells[6].Value = qty.Text;
             dataGridView1.Rows[r].Cells[7].Value = amount.Text;
 
-            double amt = double.Parse(amount.Text);
-            double totalAmt = double.Parse(totalAmount.Text);
-            totalAmt = totalAmt + amt;
-            totalAmount.Text = totalAmt.ToString("#,##0.00");
+            try
+            {
+                double amt = double.Parse(amount.Text);
+                double totalAmt = double.Parse(totalAmount.Text);
+                totalAmt = totalAmt + amt;
+                totalAmount.Text = totalAmt.ToString("#,##0.00");
+            }
+            catch (Exception ex)
+            {
+            }
+            bNew.PerformClick();
         }
 
         private void bEdit_Click(object sender, EventArgs e)
@@ -170,6 +197,7 @@ namespace TrainingCoop
                 totalAmount.Text = totalAmt.ToString("#,##0.00");
 
                 dataGridView1.Rows[r].Cells[7].Value = amount.Text;
+                bNew.PerformClick();
             }
         }
 
@@ -178,15 +206,16 @@ namespace TrainingCoop
             if (dataGridView1.Rows.Count != 0)
             {
                 int r = dataGridView1.CurrentCell.RowIndex;
-                dataGridView1.Rows.RemoveAt(r);
-                double amt = double.Parse(amount.Text);
+                double amt = double.Parse(dataGridView1.Rows[r].Cells[7].Value + "");
                 double totalAmt = double.Parse(totalAmount.Text);
                 totalAmt = totalAmt - amt;
                 totalAmount.Text = totalAmt.ToString("#,##0.00");
+                dataGridView1.Rows.RemoveAt(r);
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
                     dataGridView1.Rows[i].Cells[0].Value = i + 1;
                 }
+                bNew.PerformClick();
             }
             else
             {

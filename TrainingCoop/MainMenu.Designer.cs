@@ -30,17 +30,18 @@
         {
             menuStrip1 = new MenuStrip();
             เพมขอมลToolStripMenuItem = new ToolStripMenuItem();
-            ขอมลสนคาToolStripMenuItem = new ToolStripMenuItem();
-            ขอมลพนกงานToolStripMenuItem = new ToolStripMenuItem();
-            ขอมลลกคาToolStripMenuItem = new ToolStripMenuItem();
-            dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem = new ToolStripMenuItem();
-            ขอมลประเภทสนคาToolStripMenuItem = new ToolStripMenuItem();
+            Item = new ToolStripMenuItem();
+            Employee = new ToolStripMenuItem();
+            Customer = new ToolStripMenuItem();
+            Department = new ToolStripMenuItem();
+            ItemType = new ToolStripMenuItem();
+            Invoice = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { เพมขอมลToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { เพมขอมลToolStripMenuItem, Invoice });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(984, 29);
@@ -49,46 +50,54 @@
             // 
             // เพมขอมลToolStripMenuItem
             // 
-            เพมขอมลToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ขอมลสนคาToolStripMenuItem, ขอมลพนกงานToolStripMenuItem, ขอมลลกคาToolStripMenuItem, dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem, ขอมลประเภทสนคาToolStripMenuItem });
+            เพมขอมลToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { Item, Employee, Customer, Department, ItemType });
             เพมขอมลToolStripMenuItem.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             เพมขอมลToolStripMenuItem.Name = "เพมขอมลToolStripMenuItem";
             เพมขอมลToolStripMenuItem.Size = new Size(82, 25);
             เพมขอมลToolStripMenuItem.Text = "เพิ่มข้อมูล";
             // 
-            // ขอมลสนคาToolStripMenuItem
+            // Item
             // 
-            ขอมลสนคาToolStripMenuItem.Name = "ขอมลสนคาToolStripMenuItem";
-            ขอมลสนคาToolStripMenuItem.Size = new Size(195, 26);
-            ขอมลสนคาToolStripMenuItem.Text = "ข้อมูลสินค้า";
-            ขอมลสนคาToolStripMenuItem.Click += Item_Click;
+            Item.Name = "Item";
+            Item.Size = new Size(195, 26);
+            Item.Text = "ข้อมูลสินค้า";
+            Item.Click += Item_Click;
             // 
-            // ขอมลพนกงานToolStripMenuItem
+            // Employee
             // 
-            ขอมลพนกงานToolStripMenuItem.Name = "ขอมลพนกงานToolStripMenuItem";
-            ขอมลพนกงานToolStripMenuItem.Size = new Size(195, 26);
-            ขอมลพนกงานToolStripMenuItem.Text = "ข้อมูลพนักงาน";
-            ขอมลพนกงานToolStripMenuItem.Click += Employee_Click;
+            Employee.Name = "Employee";
+            Employee.Size = new Size(195, 26);
+            Employee.Text = "ข้อมูลพนักงาน";
+            Employee.Click += Employee_Click;
             // 
-            // ขอมลลกคาToolStripMenuItem
+            // Customer
             // 
-            ขอมลลกคาToolStripMenuItem.Name = "ขอมลลกคาToolStripMenuItem";
-            ขอมลลกคาToolStripMenuItem.Size = new Size(195, 26);
-            ขอมลลกคาToolStripMenuItem.Text = "ข้อมูลลูกค้า";
-            ขอมลลกคาToolStripMenuItem.Click += Customer_Click;
+            Customer.Name = "Customer";
+            Customer.Size = new Size(195, 26);
+            Customer.Text = "ข้อมูลลูกค้า";
+            Customer.Click += Customer_Click;
             // 
-            // dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem
+            // Department
             // 
-            dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem.Name = "dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem";
-            dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem.Size = new Size(195, 26);
-            dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem.Text = "ข้อมูลแผนก";
-            dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem.Click += Department_Click;
+            Department.Name = "Department";
+            Department.Size = new Size(195, 26);
+            Department.Text = "ข้อมูลแผนก";
+            Department.Click += Department_Click;
             // 
-            // ขอมลประเภทสนคาToolStripMenuItem
+            // ItemType
             // 
-            ขอมลประเภทสนคาToolStripMenuItem.Name = "ขอมลประเภทสนคาToolStripMenuItem";
-            ขอมลประเภทสนคาToolStripMenuItem.Size = new Size(195, 26);
-            ขอมลประเภทสนคาToolStripMenuItem.Text = "ข้อมูลประเภทสินค้า";
-            ขอมลประเภทสนคาToolStripMenuItem.Click += ItemType_Click;
+            ItemType.Name = "ItemType";
+            ItemType.Size = new Size(195, 26);
+            ItemType.Text = "ข้อมูลประเภทสินค้า";
+            ItemType.Click += ItemType_Click;
+            // 
+            // Invoice
+            // 
+            Invoice.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Invoice.Name = "Invoice";
+            Invoice.Size = new Size(47, 25);
+            Invoice.Text = "ขาย";
+            Invoice.Click += Invoice_Click;
             // 
             // MainMenu
             // 
@@ -110,10 +119,11 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem เพมขอมลToolStripMenuItem;
-        private ToolStripMenuItem ขอมลสนคาToolStripMenuItem;
-        private ToolStripMenuItem ขอมลพนกงานToolStripMenuItem;
-        private ToolStripMenuItem ขอมลลกคาToolStripMenuItem;
-        private ToolStripMenuItem dataGridView1RowsrCells5ValueLabel6TextToolStripMenuItem;
-        private ToolStripMenuItem ขอมลประเภทสนคาToolStripMenuItem;
+        private ToolStripMenuItem Item;
+        private ToolStripMenuItem Employee;
+        private ToolStripMenuItem Customer;
+        private ToolStripMenuItem Department;
+        private ToolStripMenuItem ItemType;
+        private ToolStripMenuItem Invoice;
     }
 }
