@@ -38,13 +38,13 @@
             province = new ComboBox();
             label3 = new Label();
             dataGridView1 = new DataGridView();
-            bRemove = new Button();
-            bEdit = new Button();
-            bAdd = new Button();
             Column4 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
+            bRemove = new Button();
+            bEdit = new Button();
+            bAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -143,6 +143,32 @@
             dataGridView1.TabIndex = 15;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
+            // Column4
+            // 
+            Column4.HeaderText = "No.";
+            Column4.Name = "Column4";
+            Column4.ReadOnly = true;
+            Column4.Width = 50;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Code";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Name";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Province";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
             // bRemove
             // 
             bRemove.BackColor = Color.Tomato;
@@ -175,32 +201,6 @@
             bAdd.Text = "Add";
             bAdd.UseVisualStyleBackColor = false;
             bAdd.Click += bAdd_Click;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "No.";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            Column4.Width = 50;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Code";
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Name";
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Province";
-            Column3.Name = "Column3";
-            Column3.ReadOnly = true;
             // 
             // Customer
             // 
