@@ -22,26 +22,23 @@ namespace TrainingCoop
         {
             if (e.KeyCode == Keys.Enter)
             {
-                for (int i = 0; i < dataGridView1.RowCount; i++)
+                int i = searchCode();
+                if (i >= 0)
                 {
-                    if (dataGridView1.Rows[i].Cells[1].Value + "" == itemCode.Text)
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
+                    itemName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                    typeName.Text = dataGridView1.Rows[i].Cells[3].Value + "";
+                    if (dataGridView1.Rows[i].Cells[4].Value + "" == Vat.Text)
                     {
-                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
-                        itemName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
-                        typeName.Text = dataGridView1.Rows[i].Cells[3].Value + "";
-                        if (dataGridView1.Rows[i].Cells[4].Value + "" == Vat.Text)
-                        {
-                            Vat.Checked = true;
-                        }
-                        else
-                        {
-                            noVat.Checked = true;
-                        }
-                        price.Text = dataGridView1.Rows[i].Cells[5].Value + "";
-                        qty.Text = dataGridView1.Rows[i].Cells[6].Value + "";
-                        amount.Text = dataGridView1.Rows[i].Cells[7].Value + "";
-                        break;
+                        Vat.Checked = true;
                     }
+                    else
+                    {
+                        noVat.Checked = true;
+                    }
+                    price.Text = dataGridView1.Rows[i].Cells[5].Value + "";
+                    qty.Text = dataGridView1.Rows[i].Cells[6].Value + "";
+                    amount.Text = dataGridView1.Rows[i].Cells[7].Value + "";
                 }
                 itemName.Focus();
             }
@@ -166,33 +163,52 @@ namespace TrainingCoop
             }
         }
 
+        private int searchCode()
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if (dataGridView1.Rows[i].Cells[1].Value + "" == itemCode.Text)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            int r = dataGridView1.Rows.Count - 1;
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[r].Cells[0].Value = r + 1;
-                dataGridView1.Rows[r].Cells[1].Value = itemCode.Text;
-                dataGridView1.Rows[r].Cells[2].Value = itemName.Text;
-                dataGridView1.Rows[r].Cells[3].Value = typeName.Text;
-                dataGridView1.Rows[r].Cells[4].Value = isVat;
-                dataGridView1.Rows[r].Cells[5].Value = price.Text;
-                dataGridView1.Rows[r].Cells[6].Value = qty.Text;
-                dataGridView1.Rows[r].Cells[7].Value = amount.Text;
-
-                try
-                {
-                    double amt = double.Parse(amount.Text);
-                    double totalAmt = double.Parse(totalAmount.Text);
-                    totalAmt = totalAmt + amt;
-                    totalAmount.Text = totalAmt.ToString("#,##0.00");
-                }
-                catch (Exception ex)
-                {
-                }
-
+            int index = searchCode();
+            if (index >= 0)
+            {
+                MessageBox.Show("รหัสซ้ำ");
                 bNew.PerformClick();
-                bFalse();
+                return;
+            }
+
+            dataGridView1.Rows.Add();
+            int r = dataGridView1.Rows.Count - 1;
+            dataGridView1.Rows[r].Cells[0].Value = r + 1;
+            dataGridView1.Rows[r].Cells[1].Value = itemCode.Text;
+            dataGridView1.Rows[r].Cells[2].Value = itemName.Text;
+            dataGridView1.Rows[r].Cells[3].Value = typeName.Text;
+            dataGridView1.Rows[r].Cells[4].Value = isVat;
+            dataGridView1.Rows[r].Cells[5].Value = price.Text;
+            dataGridView1.Rows[r].Cells[6].Value = qty.Text;
+            dataGridView1.Rows[r].Cells[7].Value = amount.Text;
+
+            try
+            {
+                double amt = double.Parse(amount.Text);
+                double totalAmt = double.Parse(totalAmount.Text);
+                totalAmt = totalAmt + amt;
+                totalAmount.Text = totalAmt.ToString("#,##0.00");
+            }
+            catch (Exception ex)
+            {
+            }
+
+            bNew.PerformClick();
+            bFalse();
         }
 
         private void bEdit_Click(object sender, EventArgs e)

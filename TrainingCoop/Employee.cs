@@ -26,26 +26,25 @@ namespace TrainingCoop
         {
             if (e.KeyCode == Keys.Enter)
             {
-                for (int i = 0; i < dataGridView1.RowCount; i++)
+                int i = searchCode();
+                if (i >= 0)
                 {
-                    if (dataGridView1.Rows[i].Cells[1].Value + "" == employeeCode.Text)
-                    {
-                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
-                        employeeCode.Text = dataGridView1.Rows[i].Cells[1].Value + "";
-                        employeeName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
-                        Salary.Text = dataGridView1.Rows[i].Cells[3].Value + "";
-                        string dataSex = dataGridView1.Rows[i].Cells[4].Value + "";
-                        if (dataSex == mSex.Text)
-                            mSex.Checked = true;
-                        else if (dataSex == fSex.Text)
-                            fSex.Checked = true;
-                        else
-                            noSex.Checked = true;
-                        departmentName.Text = dataGridView1.Rows[i].Cells[5].Value + "";
-                        label6.Text = dataGridView1.Rows[i].Cells[6].Value + "";
-                        pictureBox1.Image = (Image)dataGridView1.Rows[i].Cells[7].Value;
-                    }
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
+                    employeeCode.Text = dataGridView1.Rows[i].Cells[1].Value + "";
+                    employeeName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                    Salary.Text = dataGridView1.Rows[i].Cells[3].Value + "";
+                    string dataSex = dataGridView1.Rows[i].Cells[4].Value + "";
+                    if (dataSex == mSex.Text)
+                        mSex.Checked = true;
+                    else if (dataSex == fSex.Text)
+                        fSex.Checked = true;
+                    else
+                        noSex.Checked = true;
+                    departmentName.Text = dataGridView1.Rows[i].Cells[5].Value + "";
+                    label6.Text = dataGridView1.Rows[i].Cells[6].Value + "";
+                    pictureBox1.Image = (Image)dataGridView1.Rows[i].Cells[7].Value;
                 }
+
                 employeeName.Focus();
             }
         }
@@ -137,8 +136,28 @@ namespace TrainingCoop
             }
         }
 
+        private int searchCode()
+        {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if (dataGridView1.Rows[i].Cells[1].Value + "" == employeeCode.Text)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         private void bAdd_Click(object sender, EventArgs e)
         {
+            int index = searchCode();
+            if (index >= 0)
+            {
+                MessageBox.Show("รหัสซ้ำ");
+                bNew.PerformClick();
+                return;
+            }
+
             isSex();
             dataGridView1.Rows.Add();
             int r = dataGridView1.Rows.Count - 1;

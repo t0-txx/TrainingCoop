@@ -21,14 +21,11 @@ namespace TrainingCoop
         {
             if (e.KeyCode == Keys.Enter)
             {
-                for (int i = 0; i < dataGridView1.RowCount; i++)
+                int i = searchCode();
+                if (i >= 0)
                 {
-                    if (dataGridView1.Rows[i].Cells[1].Value + "" == departmentCode.Text)
-                    {
-                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
-                        departmentName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
-                        break;
-                    }
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
+                    departmentName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
                 }
                 departmentName.Focus();
             }
@@ -76,9 +73,28 @@ namespace TrainingCoop
                 bTrue();
             }
         }
-
-        private void detect()
+        private int searchCode()
         {
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if (dataGridView1.Rows[i].Cells[1].Value + "" == departmentCode.Text)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            int index = searchCode();
+            if (index >= 0)
+            {
+                MessageBox.Show("รหัสซ้ำ");
+                bNew.PerformClick();
+                return;
+            }
+
             dataGridView1.Rows.Add();
             int r = dataGridView1.Rows.Count - 1;
             dataGridView1.Rows[r].Cells[0].Value = r + 1;
@@ -86,32 +102,6 @@ namespace TrainingCoop
             dataGridView1.Rows[r].Cells[2].Value = departmentName.Text;
             bNew.PerformClick();
             bFalse();
-        }
-
-        private void bAdd_Click(object sender, EventArgs e)
-        {
-            if (dataGridView1.Rows.Count == 0)
-            {
-                detect();
-            }
-            else
-            {
-                for (int i = 0; i < dataGridView1.RowCount; i++)
-                {
-                    if (dataGridView1.Rows[i].Cells[1].Value + "" != departmentCode.Text)
-                    {
-                        detect();
-                        break;
-                    }
-                    else
-                    {
-                        MessageBox.Show("ข้อมูลซ้ำ");
-                        bNew.PerformClick();
-                        bFalse();
-                        break;
-                    }
-                }
-            }
         }
 
         private void bEdit_Click(object sender, EventArgs e)
