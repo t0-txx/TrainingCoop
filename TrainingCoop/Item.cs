@@ -26,6 +26,7 @@ namespace TrainingCoop
                 {
                     if (dataGridView1.Rows[i].Cells[1].Value + "" == itemCode.Text)
                     {
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
                         itemName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
                         typeName.Text = dataGridView1.Rows[i].Cells[3].Value + "";
                         if (dataGridView1.Rows[i].Cells[4].Value + "" == Vat.Text)
@@ -39,6 +40,7 @@ namespace TrainingCoop
                         price.Text = dataGridView1.Rows[i].Cells[5].Value + "";
                         qty.Text = dataGridView1.Rows[i].Cells[6].Value + "";
                         amount.Text = dataGridView1.Rows[i].Cells[7].Value + "";
+                        break;
                     }
                 }
                 itemName.Focus();

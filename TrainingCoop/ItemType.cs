@@ -88,6 +88,7 @@ namespace TrainingCoop
             {
                 MessageBox.Show("ไม่มีข้อมูล");
             }
+            bNew.PerformClick();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -106,7 +107,9 @@ namespace TrainingCoop
             {
                 if (dataGridView1.Rows[i].Cells[1].Value + "" == typeCode.Text)
                 {
+                    dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
                     typeName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                    break;
                 }
             }
         }

@@ -26,12 +26,11 @@ namespace TrainingCoop
         {
             if (e.KeyCode == Keys.Enter)
             {
-                employeeName.Focus();
                 for (int i = 0; i < dataGridView1.RowCount; i++)
                 {
                     if (dataGridView1.Rows[i].Cells[1].Value + "" == employeeCode.Text)
                     {
-                        departmentName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
+                        dataGridView1.CurrentCell = dataGridView1.Rows[i].Cells[0];
                         employeeCode.Text = dataGridView1.Rows[i].Cells[1].Value + "";
                         employeeName.Text = dataGridView1.Rows[i].Cells[2].Value + "";
                         Salary.Text = dataGridView1.Rows[i].Cells[3].Value + "";
@@ -47,6 +46,7 @@ namespace TrainingCoop
                         pictureBox1.Image = (Image)dataGridView1.Rows[i].Cells[7].Value;
                     }
                 }
+                employeeName.Focus();
             }
         }
 
