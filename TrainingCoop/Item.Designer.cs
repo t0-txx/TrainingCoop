@@ -292,6 +292,7 @@
             // bRemove
             // 
             bRemove.BackColor = Color.Tomato;
+            bRemove.Enabled = false;
             bRemove.Location = new Point(229, 306);
             bRemove.Name = "bRemove";
             bRemove.Size = new Size(75, 23);
@@ -303,6 +304,7 @@
             // bEdit
             // 
             bEdit.BackColor = Color.Khaki;
+            bEdit.Enabled = false;
             bEdit.Location = new Point(133, 306);
             bEdit.Name = "bEdit";
             bEdit.Size = new Size(75, 23);

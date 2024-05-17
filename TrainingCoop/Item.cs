@@ -136,6 +136,18 @@ namespace TrainingCoop
             }
         }
 
+        private void bTrue()
+        {
+            bEdit.Enabled = true;
+            bRemove.Enabled = true;
+        }
+
+        private void bFalse()
+        {
+            bEdit.Enabled = false;
+            bRemove.Enabled = false;
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -150,34 +162,37 @@ namespace TrainingCoop
                 price.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value + "";
                 qty.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value + "";
                 amount.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value + "";
+                bTrue();
             }
         }
 
 
         private void bAdd_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add();
             int r = dataGridView1.Rows.Count - 1;
-            dataGridView1.Rows[r].Cells[0].Value = r + 1;
-            dataGridView1.Rows[r].Cells[1].Value = itemCode.Text;
-            dataGridView1.Rows[r].Cells[2].Value = itemName.Text;
-            dataGridView1.Rows[r].Cells[3].Value = typeName.Text;
-            dataGridView1.Rows[r].Cells[4].Value = isVat;
-            dataGridView1.Rows[r].Cells[5].Value = price.Text;
-            dataGridView1.Rows[r].Cells[6].Value = qty.Text;
-            dataGridView1.Rows[r].Cells[7].Value = amount.Text;
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[r].Cells[0].Value = r + 1;
+                dataGridView1.Rows[r].Cells[1].Value = itemCode.Text;
+                dataGridView1.Rows[r].Cells[2].Value = itemName.Text;
+                dataGridView1.Rows[r].Cells[3].Value = typeName.Text;
+                dataGridView1.Rows[r].Cells[4].Value = isVat;
+                dataGridView1.Rows[r].Cells[5].Value = price.Text;
+                dataGridView1.Rows[r].Cells[6].Value = qty.Text;
+                dataGridView1.Rows[r].Cells[7].Value = amount.Text;
 
-            try
-            {
-                double amt = double.Parse(amount.Text);
-                double totalAmt = double.Parse(totalAmount.Text);
-                totalAmt = totalAmt + amt;
-                totalAmount.Text = totalAmt.ToString("#,##0.00");
-            }
-            catch (Exception ex)
-            {
-            }
-            bNew.PerformClick();
+                try
+                {
+                    double amt = double.Parse(amount.Text);
+                    double totalAmt = double.Parse(totalAmount.Text);
+                    totalAmt = totalAmt + amt;
+                    totalAmount.Text = totalAmt.ToString("#,##0.00");
+                }
+                catch (Exception ex)
+                {
+                }
+
+                bNew.PerformClick();
+                bFalse();
         }
 
         private void bEdit_Click(object sender, EventArgs e)

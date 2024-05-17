@@ -45,13 +45,6 @@
             label5 = new Label();
             noSex = new RadioButton();
             dataGridView1 = new DataGridView();
-            bRemove = new Button();
-            bEdit = new Button();
-            bAdd = new Button();
-            pictureBox1 = new PictureBox();
-            label6 = new Label();
-            bBrowse = new Button();
-            openFileDialog1 = new OpenFileDialog();
             Column8 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -60,6 +53,13 @@
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewImageColumn();
+            bRemove = new Button();
+            bEdit = new Button();
+            bAdd = new Button();
+            pictureBox1 = new PictureBox();
+            label6 = new Label();
+            bBrowse = new Button();
+            openFileDialog1 = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -220,72 +220,6 @@
             dataGridView1.TabIndex = 18;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
-            // bRemove
-            // 
-            bRemove.BackColor = Color.Tomato;
-            bRemove.Location = new Point(225, 285);
-            bRemove.Name = "bRemove";
-            bRemove.Size = new Size(75, 23);
-            bRemove.TabIndex = 17;
-            bRemove.Text = "Remove";
-            bRemove.UseVisualStyleBackColor = false;
-            bRemove.Click += bRemove_Click;
-            // 
-            // bEdit
-            // 
-            bEdit.BackColor = Color.Khaki;
-            bEdit.Location = new Point(129, 285);
-            bEdit.Name = "bEdit";
-            bEdit.Size = new Size(75, 23);
-            bEdit.TabIndex = 16;
-            bEdit.Text = "Edit";
-            bEdit.UseVisualStyleBackColor = false;
-            bEdit.Click += bEdit_Click;
-            // 
-            // bAdd
-            // 
-            bAdd.BackColor = Color.YellowGreen;
-            bAdd.Location = new Point(35, 285);
-            bAdd.Name = "bAdd";
-            bAdd.Size = new Size(75, 23);
-            bAdd.TabIndex = 15;
-            bAdd.Text = "Add";
-            bAdd.UseVisualStyleBackColor = false;
-            bAdd.Click += bAdd_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(325, 73);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(385, 217);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 19;
-            pictureBox1.TabStop = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(325, 308);
-            label6.Name = "label6";
-            label6.Size = new Size(0, 15);
-            label6.TabIndex = 20;
-            // 
-            // bBrowse
-            // 
-            bBrowse.Location = new Point(325, 332);
-            bBrowse.Name = "bBrowse";
-            bBrowse.Size = new Size(385, 23);
-            bBrowse.TabIndex = 21;
-            bBrowse.Text = "Browse";
-            bBrowse.UseVisualStyleBackColor = true;
-            bBrowse.Click += bBrowse_Click;
-            // 
-            // openFileDialog1
-            // 
-            openFileDialog1.FileName = "openFileDialog1";
-            // 
             // Column8
             // 
             Column8.Frozen = true;
@@ -350,6 +284,74 @@
             Column7.ReadOnly = true;
             Column7.Resizable = DataGridViewTriState.True;
             Column7.Width = 46;
+            // 
+            // bRemove
+            // 
+            bRemove.BackColor = Color.Tomato;
+            bRemove.Enabled = false;
+            bRemove.Location = new Point(225, 285);
+            bRemove.Name = "bRemove";
+            bRemove.Size = new Size(75, 23);
+            bRemove.TabIndex = 17;
+            bRemove.Text = "Remove";
+            bRemove.UseVisualStyleBackColor = false;
+            bRemove.Click += bRemove_Click;
+            // 
+            // bEdit
+            // 
+            bEdit.BackColor = Color.Khaki;
+            bEdit.Enabled = false;
+            bEdit.Location = new Point(129, 285);
+            bEdit.Name = "bEdit";
+            bEdit.Size = new Size(75, 23);
+            bEdit.TabIndex = 16;
+            bEdit.Text = "Edit";
+            bEdit.UseVisualStyleBackColor = false;
+            bEdit.Click += bEdit_Click;
+            // 
+            // bAdd
+            // 
+            bAdd.BackColor = Color.YellowGreen;
+            bAdd.Location = new Point(35, 285);
+            bAdd.Name = "bAdd";
+            bAdd.Size = new Size(75, 23);
+            bAdd.TabIndex = 15;
+            bAdd.Text = "Add";
+            bAdd.UseVisualStyleBackColor = false;
+            bAdd.Click += bAdd_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(325, 73);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(385, 217);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 19;
+            pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(325, 308);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 15);
+            label6.TabIndex = 20;
+            // 
+            // bBrowse
+            // 
+            bBrowse.Location = new Point(325, 332);
+            bBrowse.Name = "bBrowse";
+            bBrowse.Size = new Size(385, 23);
+            bBrowse.TabIndex = 21;
+            bBrowse.Text = "Browse";
+            bBrowse.UseVisualStyleBackColor = true;
+            bBrowse.Click += bBrowse_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
             // 
             // Employee
             // 

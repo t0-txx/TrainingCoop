@@ -36,12 +36,12 @@
             label2 = new Label();
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            bRemove = new Button();
-            bEdit = new Button();
-            bAdd = new Button();
             Column3 = new DataGridViewTextBoxColumn();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
+            bRemove = new Button();
+            bEdit = new Button();
+            bAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -122,39 +122,6 @@
             dataGridView1.TabIndex = 15;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
-            // bRemove
-            // 
-            bRemove.BackColor = Color.Tomato;
-            bRemove.Location = new Point(274, 214);
-            bRemove.Name = "bRemove";
-            bRemove.Size = new Size(75, 23);
-            bRemove.TabIndex = 14;
-            bRemove.Text = "Remove";
-            bRemove.UseVisualStyleBackColor = false;
-            bRemove.Click += bRemove_Click;
-            // 
-            // bEdit
-            // 
-            bEdit.BackColor = Color.Khaki;
-            bEdit.Location = new Point(178, 214);
-            bEdit.Name = "bEdit";
-            bEdit.Size = new Size(75, 23);
-            bEdit.TabIndex = 13;
-            bEdit.Text = "Edit";
-            bEdit.UseVisualStyleBackColor = false;
-            bEdit.Click += bEdit_Click;
-            // 
-            // bAdd
-            // 
-            bAdd.BackColor = Color.YellowGreen;
-            bAdd.Location = new Point(84, 214);
-            bAdd.Name = "bAdd";
-            bAdd.Size = new Size(75, 23);
-            bAdd.TabIndex = 12;
-            bAdd.Text = "Add";
-            bAdd.UseVisualStyleBackColor = false;
-            bAdd.Click += bAdd_Click;
-            // 
             // Column3
             // 
             Column3.HeaderText = "No.";
@@ -174,6 +141,41 @@
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
             Column2.Width = 200;
+            // 
+            // bRemove
+            // 
+            bRemove.BackColor = Color.Tomato;
+            bRemove.Enabled = false;
+            bRemove.Location = new Point(274, 214);
+            bRemove.Name = "bRemove";
+            bRemove.Size = new Size(75, 23);
+            bRemove.TabIndex = 14;
+            bRemove.Text = "Remove";
+            bRemove.UseVisualStyleBackColor = false;
+            bRemove.Click += bRemove_Click;
+            // 
+            // bEdit
+            // 
+            bEdit.BackColor = Color.Khaki;
+            bEdit.Enabled = false;
+            bEdit.Location = new Point(178, 214);
+            bEdit.Name = "bEdit";
+            bEdit.Size = new Size(75, 23);
+            bEdit.TabIndex = 13;
+            bEdit.Text = "Edit";
+            bEdit.UseVisualStyleBackColor = false;
+            bEdit.Click += bEdit_Click;
+            // 
+            // bAdd
+            // 
+            bAdd.BackColor = Color.YellowGreen;
+            bAdd.Location = new Point(84, 214);
+            bAdd.Name = "bAdd";
+            bAdd.Size = new Size(75, 23);
+            bAdd.TabIndex = 12;
+            bAdd.Text = "Add";
+            bAdd.UseVisualStyleBackColor = false;
+            bAdd.Click += bAdd_Click;
             // 
             // Department
             // 

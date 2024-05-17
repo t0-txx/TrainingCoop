@@ -103,6 +103,18 @@ namespace TrainingCoop
             }
         }
 
+        private void bTrue()
+        {
+            bEdit.Enabled = true;
+            bRemove.Enabled = true;
+        }
+
+        private void bFalse()
+        {
+            bEdit.Enabled = false;
+            bRemove.Enabled = false;
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -121,6 +133,7 @@ namespace TrainingCoop
                 label6.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value + "";
                 pictureBox1.Image = (Image)dataGridView1.Rows[e.RowIndex].Cells[7].Value;
                 //pictureBox1.Image = System.Drawing.Image.FromFile("F:\\รูป\\" + label6.Text);
+                bTrue();
             }
         }
 
@@ -138,6 +151,7 @@ namespace TrainingCoop
             dataGridView1.Rows[r].Cells[6].Value = label6.Text;
             dataGridView1.Rows[r].Cells[7].Value = pictureBox1.Image;
             bNew.PerformClick();
+            bFalse();
         }
 
         private void bEdit_Click(object sender, EventArgs e)

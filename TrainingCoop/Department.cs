@@ -55,16 +55,29 @@ namespace TrainingCoop
             }
         }
 
+        private void bTrue()
+        {
+            bEdit.Enabled = true;
+            bRemove.Enabled = true;
+        }
+
+        private void bFalse()
+        {
+            bEdit.Enabled = false;
+            bRemove.Enabled = false;
+        }
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
                 departmentCode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
                 departmentName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
+                bTrue();
             }
         }
 
-        private void bAdd_Click(object sender, EventArgs e)
+        private void detect()
         {
             dataGridView1.Rows.Add();
             int r = dataGridView1.Rows.Count - 1;
@@ -72,6 +85,33 @@ namespace TrainingCoop
             dataGridView1.Rows[r].Cells[1].Value = departmentCode.Text;
             dataGridView1.Rows[r].Cells[2].Value = departmentName.Text;
             bNew.PerformClick();
+            bFalse();
+        }
+
+        private void bAdd_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                detect();
+            }
+            else
+            {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    if (dataGridView1.Rows[i].Cells[1].Value + "" != departmentCode.Text)
+                    {
+                        detect();
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("ข้อมูลซ้ำ");
+                        bNew.PerformClick();
+                        bFalse();
+                        break;
+                    }
+                }
+            }
         }
 
         private void bEdit_Click(object sender, EventArgs e)
