@@ -70,6 +70,7 @@ namespace TrainingCoop
             {
                 departmentCode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
                 departmentName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
+                departmentCode.Focus();
                 bTrue();
             }
         }
@@ -112,6 +113,7 @@ namespace TrainingCoop
                 dataGridView1.Rows[r].Cells[1].Value = departmentCode.Text;
                 dataGridView1.Rows[r].Cells[2].Value = departmentName.Text;
                 bNew.PerformClick();
+                bFalse();
             }
         }
 
@@ -130,6 +132,8 @@ namespace TrainingCoop
             {
                 MessageBox.Show("ไม่มีข้อมูล");
             }
+            bNew.PerformClick();
+            bFalse();
         }
     }
 }

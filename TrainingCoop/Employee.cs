@@ -132,6 +132,7 @@ namespace TrainingCoop
                 label6.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value + "";
                 pictureBox1.Image = (Image)dataGridView1.Rows[e.RowIndex].Cells[7].Value;
                 //pictureBox1.Image = System.Drawing.Image.FromFile("F:\\รูป\\" + label6.Text);
+                employeeCode.Focus();
                 bTrue();
             }
         }
@@ -187,6 +188,7 @@ namespace TrainingCoop
                 dataGridView1.Rows[r].Cells[6].Value = label6.Text;
                 dataGridView1.Rows[r].Cells[7].Value = pictureBox1.Image;
                 bNew.PerformClick();
+                bFalse();
             }
         }
 
@@ -205,6 +207,8 @@ namespace TrainingCoop
             {
                 MessageBox.Show("ไม่มีข้อมูล");
             }
+            bNew.PerformClick();
+            bFalse();
         }
 
         private void bBrowse_Click(object sender, EventArgs e)

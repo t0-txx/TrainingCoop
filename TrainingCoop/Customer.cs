@@ -74,6 +74,7 @@ namespace TrainingCoop
                 customerCode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
                 customerName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
                 province.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value + "";
+                customerCode.Focus();
                 bTrue();
             }
         }
@@ -119,6 +120,7 @@ namespace TrainingCoop
                 dataGridView1.Rows[r].Cells[2].Value = customerName.Text;
                 dataGridView1.Rows[r].Cells[3].Value = province.Text;
                 bNew.PerformClick();
+                bFalse();
             }
         }
 
@@ -137,6 +139,8 @@ namespace TrainingCoop
             {
                 MessageBox.Show("ไม่มีข้อมูล");
             }
+            bNew.PerformClick();
+            bFalse();
         }
     }
 }

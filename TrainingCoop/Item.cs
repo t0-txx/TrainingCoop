@@ -159,6 +159,7 @@ namespace TrainingCoop
                 price.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value + "";
                 qty.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value + "";
                 amount.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value + "";
+                itemCode.Focus();
                 bTrue();
             }
         }
@@ -231,6 +232,7 @@ namespace TrainingCoop
 
                 dataGridView1.Rows[r].Cells[7].Value = amount.Text;
                 bNew.PerformClick();
+                bFalse();
             }
         }
 
@@ -248,12 +250,13 @@ namespace TrainingCoop
                 {
                     dataGridView1.Rows[i].Cells[0].Value = i + 1;
                 }
-                bNew.PerformClick();
             }
             else
             {
                 MessageBox.Show("ไม่มีข้อมูล");
             }
+            bNew.PerformClick();
+            bFalse();
         }
     }
 }

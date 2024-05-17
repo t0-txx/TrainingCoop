@@ -61,6 +61,7 @@ namespace TrainingCoop
             {
                 typeCode.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value + "";
                 typeName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value + "";
+                typeCode.Focus();
                 bTrue();
             }
         }
@@ -104,6 +105,7 @@ namespace TrainingCoop
                 dataGridView1.Rows[r].Cells[1].Value = typeCode.Text;
                 dataGridView1.Rows[r].Cells[2].Value = typeName.Text;
                 bNew.PerformClick();
+                bFalse();
             }
         }
 
@@ -123,6 +125,7 @@ namespace TrainingCoop
                 MessageBox.Show("ไม่มีข้อมูล");
             }
             bNew.PerformClick();
+            bFalse();
         }
 
         private void button1_Click(object sender, EventArgs e)
