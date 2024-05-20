@@ -23,3 +23,4 @@ F:\เรียนเสริม\TrainingCoop\TrainingCoop\obj\Debug\net6.0-win
 F:\เรียนเสริม\TrainingCoop\TrainingCoop\obj\Debug\net6.0-windows\TrainingCoop.MainMenu.resources
 F:\เรียนเสริม\TrainingCoop\TrainingCoop\obj\Debug\net6.0-windows\TrainingCoop.csproj.AssemblyReference.cache
 F:\เรียนเสริม\TrainingCoop\TrainingCoop\obj\Debug\net6.0-windows\TrainingCoop.inVoice.resources
+F:\เรียนเสริม\TrainingCoop\TrainingCoop\obj\Debug\net6.0-windows\TrainingCoop.StudentDiGit.resources

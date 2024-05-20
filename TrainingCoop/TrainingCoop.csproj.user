@@ -25,5 +25,8 @@
     <Compile Update="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="StudentDiGit.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
